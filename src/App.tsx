@@ -1,18 +1,18 @@
 import LoginForm from "@/components/loginForm"
-import Navbar from "@/components/navbar"
+import Header from "@/components/header"
 import { Footer } from "@/components/footer"
 import sfondo from "@/assets/sfondo.jpg"
 
 function App() {
   return (
-    <div className="h-screen flex flex-col overflow-hidden">
-      <Navbar />
+    <div className="h-screen flex flex-col overflow-hidden gap-2">
+      <Header />
 
-      <main className="relative flex-1 min-h-0 w-full flex items-center justify-center overflow-hidden">
+      <main className="relative flex-1 min-h-0 flex items-center justify-center rounded-xl overflow-hidden mx-26">
         <img
           src={sfondo}
           alt="description"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="w-full h-full object-cover"
         />
         <LoginForm />
       </main>

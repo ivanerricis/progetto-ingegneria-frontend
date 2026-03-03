@@ -12,7 +12,7 @@ export const LoginForm = () => {
                     Inserisci email e password per accedere al tuo account o registrati se non ne hai uno.
                 </CardDescription>
                 <CardAction>
-                    <Button variant="outline">Sign Up</Button>
+                    <Button variant="outline">Registrati</Button>
                 </CardAction>
             </CardHeader>
             <CardContent>
@@ -23,7 +23,7 @@ export const LoginForm = () => {
                             <Input
                                 id="email"
                                 type="email"
-                                placeholder="m@example.com"
+                                placeholder="mariorossi@gmail.com"
                                 required
                             />
                         </div>
@@ -44,10 +44,10 @@ export const LoginForm = () => {
             </CardContent>
             <CardFooter className="flex-col gap-2">
                 <Button type="submit" className="w-full">
-                    Login
+                    Accedi
                 </Button>
                 <Button variant="outline" className="w-full">
-                    Login con Google
+                    Accedi con Google
                 </Button>
             </CardFooter>
         </Card >
