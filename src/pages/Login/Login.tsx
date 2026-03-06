@@ -1,9 +1,9 @@
 import { Footer } from "@/components/footer"
 import Header from "@/components/header"
+import LoginForm from "@/pages/Login/components/loginForm"
 import sfondo from "@/assets/sfondo.jpg"
-import SignupForm from "@/components/signupForm"
 
-export const Register = () => {
+export const Login = () => {
     return (
         <div className="h-screen flex flex-col overflow-hidden gap-2">
             <Header />
@@ -14,7 +14,7 @@ export const Register = () => {
                     alt="description"
                     className="w-full h-full object-cover"
                 />
-                <SignupForm />
+                <LoginForm />
             </main>
 
             <Footer />
@@ -22,4 +22,4 @@ export const Register = () => {
     )
 }
 
-export default Register
+export default Login

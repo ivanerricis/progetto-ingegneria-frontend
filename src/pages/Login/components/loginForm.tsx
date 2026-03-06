@@ -1,38 +1,20 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { Button, buttonVariants } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { PasswordStrength } from "./mantine/passwordStrength"
-import { Separator } from "./ui/separator"
+import { Separator } from "@/components/ui/separator"
+import { cn } from "@/lib/utils"
 import { Link } from "react-router-dom"
 
-export const SignupForm = () => {
+export const LoginForm = () => {
     return (
-        <Card className="w-full max-w-md absolute" >
+        <Card className="w-full max-w-sm absolute" >
             <CardHeader>
-                <CardTitle>Registrati</CardTitle>
+                <CardTitle>Accedi al tuo account</CardTitle>
             </CardHeader>
             <CardContent>
                 <form>
-                    <div className="flex flex-col gap-4">
-                        <div className="grid gap-2">
-                            <Label htmlFor="firstname">Nome</Label>
-                            <Input
-                                id="firstname"
-                                type="text"
-                                placeholder="Mario"
-                                required
-                            />
-                        </div>
-                        <div className="grid gap-2">
-                            <Label htmlFor="lastname">Cognome</Label>
-                            <Input
-                                id="lastname"
-                                type="text"
-                                placeholder="Rossi"
-                                required
-                            />
-                        </div>
+                    <div className="flex flex-col gap-6">
                         <div className="grid gap-2">
                             <Label htmlFor="email">Email</Label>
                             <Input
@@ -43,17 +25,30 @@ export const SignupForm = () => {
                             />
                         </div>
                         <div className="grid gap-2">
-                            <PasswordStrength />
+                            <div className="flex items-center">
+                                <Label htmlFor="password">Password</Label>
+                                <a
+                                    href="#"
+                                    className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
+                                >
+                                    Hai dimenticato la password?
+                                </a>
+                            </div>
+                            <Input
+                                id="password"
+                                type="password"
+                                placeholder="La tua password"
+                                required />
                         </div>
                     </div>
                 </form>
             </CardContent>
             <CardFooter className="flex-col gap-2">
                 <Button type="submit" className="w-full">
-                    Registrati
+                    Accedi
                 </Button>
                 <Button variant="outline" className="w-full">
-                    Registrati con Google
+                    Accedi con Google
                 </Button>
                 <div className="flex gap-2 w-full items-center">
                     <Separator />
@@ -62,12 +57,12 @@ export const SignupForm = () => {
                     </div>
                     <Separator />
                 </div>
-                <Button className="w-full" variant="outline">
-                    <Link to="/login">Accedi</Link>
-                </Button>
+                <Link to="/register" className={cn(buttonVariants({ variant: "secondary" }), "w-full")}>
+                    Registrati
+                </Link>
             </CardFooter>
         </Card >
     )
 }
 
-export default SignupForm
+export default LoginForm

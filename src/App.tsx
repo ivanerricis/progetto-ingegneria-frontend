@@ -1,9 +1,10 @@
 import '@mantine/core/styles.css';
 import { MantineProvider } from '@mantine/core';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import Login from '@/pages/Login';
-import { Register } from '@/pages/Register';
-import { Homepage } from '@/pages/Homepage';
+import Login from '@/pages/Login/Login';
+import { Register } from '@/pages/Register/Register';
+import { Homepage } from '@/pages/Homepage/Homepage';
+import { ThemeProvider } from './components/theme-provider';
 
 function App() {
   return (
@@ -13,14 +14,19 @@ function App() {
         headings: { fontFamily: 'Nunito Sans, sans-serif' },
       }}
     >
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Navigate to="/login" replace />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/homepage" element={<Homepage />} />
-        </Routes>
-      </BrowserRouter>
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Navigate to="/login" replace />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/homepage" element={<Homepage />} />
+
+            {/* Route di fallback per pagine non esistenti */}
+            <Route path="*" element={<Navigate to="/login" replace />} />
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
     </MantineProvider>
   )
 }
